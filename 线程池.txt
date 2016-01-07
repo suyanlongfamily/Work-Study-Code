@@ -1,0 +1,23 @@
+线程池中的线程，初始化的时候先启动 n 个线程，都处于挂起状态，需要使用的时候唤醒，使用完成后再让其挂起，等待下一次的启动，而不是销毁。明白？ 
+
+已经搞定了，采用IOCP和迭代IO很好的解决了我的问题。 
+
+要让线程退出就是了撒。
+ 用这个控制
+WaitForMultipleObjects
+
+ while (TRUE)
+ {
+ dwWaitRtn = WaitForMultipleObjects(2,hWriteHandle,FALSE,8000);
+ if (dwWaitRtn == WAIT_OBJECT_0)
+ {
+ Task();
+ }
+
+ if (dwWaitRtn == WAIT_TIMEOUT)
+ {
+ //exit
+ }
+ } 
+ 
+ 线程池中的线程，初始化的时候先启动 n 个线程，都处于挂起状态，需要使用的时候唤醒，使用完成后再让其挂起，等待下一次的启动，而不是销毁。明白？ 
