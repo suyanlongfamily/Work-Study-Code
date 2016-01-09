@@ -1,0 +1,47 @@
+class TfrmUpdMarginScale : public TExtBaseForm
+{
+__published:	// IDE-managed Components
+  
+	
+    TLabel *lblInstId;
+    TLabel *lblProuductId;
+    TLabel *lblCurrenRatio;
+
+    TLabel *lblNewRatio;
+
+	
+    TRadioButton *rbInstIdMargin;
+    TRadioButton *rbInstOption;
+
+    TButton *btnUpdate;
+    TButton *btnCancel;
+	
+	
+typedef enum
+{
+    LaugChinese = 0,     //简体中文
+    LaugEnglish = 1,     //英文
+} TLanguageType;
+
+ switch(gAcc_CurLaugType)
+    {
+        case LaugChinese:
+        lblCaption->Caption = "我的账户[USD]";
+        break;
+        case LaugEnglish:
+        lblCaption->Caption = "My Account[USD]";
+        break;
+        default:
+        break;
+    }
+
+#include "AccMgr_MainForm.h"
+#include "AccMgr_PubDef.h"
+frmAccMgrMain->lstLanguageFile->Values[strName+ ".strWarning2"].c_str()
+
+ this->Caption = lstLanguageFile->Values["TfrmSignView.Caption"];
+ 
+void __fastcall TfrmSignView::ChangeLanguage(TLanguageType LaugType, TStringList *lstLanguageFile)
+
+ ChangeLanguage(gAcc_CurLaugType, frmAccMgrMain->lstLanguageFile);
+ 
