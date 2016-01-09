@@ -1,0 +1,31 @@
+实时行情 
+货币组合
+卖出价
+买入价
+时间
+最低价
+最高价
+开盘价
+收盘价
+涨幅
+交易状态
+停止交易
+可交易 
+对冲 hedge
+期货 futures
+基金 fund
+金融 financial
+市场 market
+期权 option
+交割日 value date
+成交量 volume 
+盈亏 profit
+容忍点差
+
+pen->Color = clRed;
+pen->Width = 2 
+
+pen->Color = clBlack;
+pen->Width = 0
+
+

@@ -1,0 +1,19 @@
+{ "{\"data\":{\"messageId\":\"/clientQueryCustProductRadio.action\",\"msgHeader\":{},\"result\":{
+
+\"datals\":
+[
+{\"countNum\":10,\"createTime\":20150901,\"custRatioLevel\":\"A\",\"id\":\"6\",\"levelId\":\"1\",\"lot\":10,\"modifyTime\":1,\"operateDate\":0,\"productId\":\"EUR/USD\",\"ratio\":40,\"rowId\":1},
+{\"countNum\":10,\"createTime\":20150901,\"custRatioLevel\":\"B\",\"id\":\"7\",\"levelId\":\"2\",\"lot\":10,\"modifyTime\":1,\"operateDate\":0,\"productId\":\"EUR/USD\",\"ratio\":45,\"rowId\":2},
+{\"countNum\":10,\"createTime\":20150901,\"custRatioLevel\":\"C\",\"id\":\"8\",\"levelId\":\"3\",\"lot\":10,\"modifyTime\":1,\"operateDate\":0,\"productId\":\"EUR/USD\",\"ratio\":50,\"rowId\":3},
+{\"countNum\":10,\"createTime\":20150901,\"custRatioLevel\":\"D\",\"id\":\"9\",\"levelId\":\"4\",\"lot\":11,\"modifyTime\":1,\"operateDate\":0,\"productId\":\"EUR/USD\",\"ratio\":55,\"rowId\":4},
+{\"countNum\":10,\"createTime\":20150901,\"custRatioLevel\":\"E\",\"id\":\"10\",\"levelId\":\"5\",\"lot\":12,\"modifyTime\":1,\"operateDate\":0,\"productId\":\"EUR/USD\",\"ratio\":60,\"rowId\":5},
+{\"countNum\":10,\"createTime\":20150901,\"custRatioLevel\":\"A\",\"id\":\"1\",\"levelId\":\"1\",\"lot\":10,\"modifyTime\":1,\"operateDate\":0,\"productId\":\"USD/JPY\",\"ratio\":10,\"rowId\":6},
+{\"countNum\":10,\"createTime\":20150901,\"custRatioLevel\":\"B\",\"id\":\"2\",\"levelId\":\"2\",\"lot\":10,\"modifyTime\":1,\"operateDate\":0,\"productId\":\"USD/JPY\",\"ratio\":15,\"rowId\":7},
+{\"countNum\":10,\"createTime\":20150901,\"custRatioLevel\":\"C\",\"id\":\"3\",\"levelId\":\"3\",\"lot\":10,\"modifyTime\":1,\"operateDate\":0,\"productId\":\"USD/JPY\",\"ratio\":20,\"rowId\":8},
+{\"countNum\":10,\"createTime\":20150901,\"custRatioLevel\":\"D\",\"id\":\"4\",\"levelId\":\"4\",\"lot\":11,\"modifyTime\":1,\"operateDate\":0,\"productId\":\"USD/JPY\",\"ratio\":25,\"rowId\":9},
+{\"countNum\":10,\"createTime\":20150901,\"custRatioLevel\":\"E\",\"id\":\"5\",\"levelId\":\"5\",\"lot\":12,\"modifyTime\":1,\"operateDate\":0,\"productId\":\"USD/JPY\",\"ratio\":30,\"rowId\":10}
+]
+
+
+
+,\"pageCtrl\":true,\"pageSize\":40,\"start\":1,\"total\":10}},\"success\":true}", "", { "dg\x19\x01dg\x19\x01燶x17" } }
