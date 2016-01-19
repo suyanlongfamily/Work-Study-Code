@@ -35,12 +35,12 @@ class TTimer
 private:
 	TTimeMessage *FMainQueue;
 
-	CRITICAL_SECTION FMutex;
+    CRITICAL_SECTION FMutex;
 	DWORD FThreadID;
-	DWORD pt;
-	HANDLE handle;
+    DWORD pt;
+ 	HANDLE handle;
 
-	static DWORD WINAPI TimerCreateThread(void *owner);
+    static DWORD WINAPI TimerCreateThread(void *owner);
 
 	std::list <TTimerItem> FList;
 	int FInterval;

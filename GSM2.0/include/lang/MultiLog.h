@@ -17,7 +17,7 @@
 #include "lang/BackLog.h"
 #include "lang/List.h"
 #include "lang/DateUtil.h"
-#include "lang/CharSet.h"
+#include "CharSet.h"
 //---------------------------------------------------------------------------
 namespace lang
 {
