@@ -89,6 +89,25 @@ int _tmain(int argc, _TCHAR* argv[])
 	pDrived->TBase::Display();
 	pDrived->Basefun();
 	pDrived->fun();
+	pDrived->TDrivedfun();//这个居然也能执行！
+
+	TDrived* pDrived1 = (TDrived*)pbase;
+	pDrived1->Display();
+	pDrived1->TBase::Display();
+	pDrived1->Basefun();
+	pDrived1->fun();//调用基类的
+	pDrived1->TDrivedfun();//同样也可以调用，只是相当于，一个公共函数。
+	//-----------------
+	//对比以上两个类型转化。明白。
+	//1、指针变量转换，不管是类继承里面还是不相同类型转换的，都不会引起多大问题，都是只是一个内存的地址。即32位的正整数。
+	//2、区别（T*）、与dynamic_cast<TDrived*>指针类型转换的区别。
+	//3、指针本质，不管什么类型的转换，其实就是形参表达就是一个指针（地址）容器，不管是什么类型，都是只是一个内存的地址。即32位的正整数，到时候强制转换就可以了。
+	//以上才是指针的强大之处，是指针本质，其实，指针就是汇编里面的地址寻址，的知识点！
+	//-----------------
+	//指针的转换与对象之间的转换要区别开来。
+	//对象之间的转换其实就是，赋值构造函数与复制构造函数的应用！与指针不一样，指针都是指向同一个地址。不存在赋值构造函数与复制构造函数，仅仅只是地址的复制、赋值。
+	TDrived td;
+	TBase base = td;
 
 
 	//第八种
