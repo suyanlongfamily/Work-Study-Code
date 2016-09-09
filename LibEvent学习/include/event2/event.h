@@ -557,6 +557,7 @@ struct event_base *event_base_new_with_config(const struct event_config *);
   to event_new as the argument to callback.
 
   @param eb an event_base to be freed
+  //释放libevent实例，也就是reactor实例。
  */
 void event_base_free(struct event_base *);
 
@@ -721,7 +722,8 @@ int event_base_got_break(struct event_base *);
 
 /**
  * @name event flags
- *
+ *	//事件类型，总共这几种，但是，事件对象可以有很多个，因为我们注册的是事件对象。
+	//即一种类型的（不同）事件对象，可以注册上。
  * Flags to pass to event_new(), event_assign(), event_pending(), and
  * anything else with an argument of the form "short events"
  */
