@@ -21,9 +21,15 @@
     <ClCompile Include="libevent_srv.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="TContian.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libevent_srv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TContian.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
