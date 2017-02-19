@@ -21,41 +21,31 @@
 #endif 	   
 #include <event2/event.h>	
 #include <event2/event-config.h> 
+#include <iostream>
+using namespace std;
 
 #define MAXLINE 256
 #define SERV_PORT 8800
 
-void do_loop(FILE *fp, int sockfd)
+void do_loop(int sockfd)
 {
-	int n;
-	char sendline[MAXLINE], recvline[MAXLINE + 1] ;
-	memset(recvline,0,sizeof(recvline));//清空
-	memset(sendline,0,sizeof(sendline));//清空
-
-	while(fgets(sendline, MAXLINE, fp) != NULL)
+	char sendline[MAXLINE] ;  
+	memset(sendline,0,sizeof(sendline));//清空 
+	fgets(sendline, MAXLINE, stdin);
+	while(fgets(sendline, MAXLINE, stdin) != NULL)
 	{
 		/* read a line and send to server */
-		send(sockfd, sendline, strlen(sendline),0);
-
-
-		/* receive data from server */
-		n = recv(sockfd, recvline, MAXLINE,0);
-		if(n == -1)
-		{
-			perror("read error");
-			exit(1);
-		}
-		recvline[n] = 0; /* terminate string */
-		printf("\nreceiv:%s\n",recvline);
-		memset(recvline,0,sizeof(recvline));//清空
-		memset(sendline,0,sizeof(sendline));//清空
-
+		send(sockfd, sendline, strlen(sendline),0);	
+		memset(sendline,0,sizeof(sendline));//清空  
 	}
 }
 
-int main(int argc, char **argv)
-{
+void on_read(int fd,short event,void* arg);
+void on_IORead(int fd,short event,void* arg);
 
+struct event_base* gBase;	
+int main(int argc, char **argv)
+{	
 #if WIN32
 	WSADATA wsaData;
 	WORD wVersionRequested = MAKEWORD(1, 1);
@@ -95,7 +85,55 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
-	do_loop(stdin, sockfd);
+	gBase = event_base_new();
+	int iii = 0;
+	printf( "The file descriptor for stdin is %d\n", _fileno( stdin ) );
+
+	
+	struct event* ev_read = event_new(gBase,sockfd,EV_READ|EV_PERSIST,on_read,NULL); 
+	//struct event* ev_IOread = event_new(gBase,_fileno( stdin ),EV_READ,on_IORead,NULL); 
+
+	//event_base_set(gBase,ev_IOread);
+	event_base_set(gBase,ev_read);	
+
+	HANDLE thread = CreateThread(NULL,0,(LPTHREAD_START_ROUTINE)do_loop,(void*)sockfd,0,NULL);
+
+    //do_loop(stdin, sockfd);	 
+	event_add(ev_read,NULL);
+	//event_add(ev_IOread,NULL);
+	event_base_dispatch(gBase);	
 
 	return 0;
 }
+
+void on_IORead(int fd,short event,void* arg){
+	int i = 0;
+	char sendline[MAXLINE] ;  
+	memset(sendline,0,sizeof(sendline));//清空 
+	cin>>sendline;
+	//while(fgets(sendline, MAXLINE, fp) != NULL)
+	//{
+	/* read a line and send to server */
+	send(fd, sendline, strlen(sendline),0);	
+	memset(sendline,0,sizeof(sendline));//清空  
+		
+}
+
+void on_read(int fd,short event,void* arg)
+{
+	int n;
+	char recvline[MAXLINE + 1] ;
+	memset(recvline,0,sizeof(recvline));//清空
+
+	/* receive data from server */
+	n = recv(fd, recvline, MAXLINE,0);
+	if(n == -1)
+	{
+		perror("read error");
+		exit(1);
+	}
+	recvline[n] = 0; /* terminate string */
+	printf("\nreceiv:%s\n",recvline);
+	memset(recvline,0,sizeof(recvline));//清空   
+}
+

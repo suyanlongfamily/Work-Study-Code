@@ -86,11 +86,10 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="libevent_srv.cpp" />
+    <ClCompile Include="event_server1.cpp" />
     <ClCompile Include="TContian.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="libevent_srv.h" />
     <ClInclude Include="TContian.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
