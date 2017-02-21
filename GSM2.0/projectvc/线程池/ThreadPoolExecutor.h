@@ -1,4 +1,4 @@
-#pragma once
+pragma once
 #ifndef __THREAD_POOL_EXECUTOR__  
 #define __THREAD_POOL_EXECUTOR__  
   
